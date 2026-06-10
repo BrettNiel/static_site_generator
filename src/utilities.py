@@ -20,7 +20,47 @@ def split_nodes_delimiter(old_nodes: list[TextNode], delimiter: str, text_type: 
                 new_nodes.append(TextNode(text, text_type))
     return new_nodes
 
+def split_nodes_image(old_nodes: list[TextNode]) -> list[TextNode]:
+    result = []
+    for node in old_nodes:
+        if node.text_type != TextType.TEXT:
+            result.append(node)
+            continue
+        images = extract_markdown_images(node.text)
+        remaining_text = node.text
+        if not images:
+            result.append(node)
+            continue
+        for (alt, url) in images:
+            sections = remaining_text.split(f'![{alt}]({url})', 1)
+            if sections[0]:
+                result.append(TextNode(sections[0], TextType.TEXT))
+            result.append(TextNode(alt, TextType.IMAGE, url))
+            remaining_text = sections[1]
+        if remaining_text:
+            result.append(TextNode(remaining_text, TextType.TEXT))
+    return result
 
+def split_nodes_link(old_nodes: list[TextNode]) -> list[TextNode]:
+    result = []
+    for node in old_nodes:
+        if node.text_type != TextType.TEXT:
+            result.append(node)
+            continue
+        links = extract_markdown_links(node.text)
+        remaining_text = node.text
+        if not links:
+            result.append(node)
+            continue
+        for (anchor, url) in links:
+            sections = remaining_text.split(f'[{anchor}]({url})', 1)
+            if sections[0]:
+                result.append(TextNode(sections[0], TextType.TEXT))
+            result.append(TextNode(anchor, TextType.LINK, url)) 
+            remaining_text = sections[1]
+        if remaining_text:
+            result.append(TextNode(remaining_text, TextType.TEXT))
+    return result
 
 def extract_markdown_images(text):
     pattern = r'!\[([^\[\]]*)\]\(([^\(\)]*)\)'
