@@ -6,6 +6,7 @@ from utilities import extract_markdown_images
 from utilities import extract_markdown_links
 from utilities import split_nodes_image
 from utilities import split_nodes_link
+from utilities import text_to_textnodes
 
 
 class TestNodeDelimiter(unittest.TestCase):
@@ -83,6 +84,23 @@ class TestNodeLink(unittest.TestCase):
             new_nodes,
         )
 
+class TestTextToTextNodes(unittest.TestCase):
+    def test_text_to_textnodes(self):
+        node = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
+        new_nodes = text_to_textnodes(node)
+        self.assertListEqual([
+            TextNode("This is ", TextType.TEXT),
+            TextNode("text", TextType.BOLD),
+            TextNode(" with an ", TextType.TEXT),
+            TextNode("italic", TextType.ITALIC),
+            TextNode(" word and a ", TextType.TEXT),
+            TextNode("code block", TextType.CODE),
+            TextNode(" and an ", TextType.TEXT),
+            TextNode("obi wan image", TextType.IMAGE, "https://i.imgur.com/fJRm4Vk.jpeg"),
+            TextNode(" and a ", TextType.TEXT),
+            TextNode("link", TextType.LINK, "https://boot.dev"),
+        ], new_nodes)
+
 class TestExtractImage(unittest.TestCase):
     def test_extract_markdown_images(self):
         matches = extract_markdown_images("This is text with an ![image](https://i.imgur.com/zjjcJKZ.png)")
@@ -92,3 +110,4 @@ class TestExtractLinks(unittest.TestCase):
     def test_extract_markdown_links(self):
         matches = extract_markdown_links("This is text with a [link](https://www.google.com)")
         self.assertListEqual([("link", "https://www.google.com")], matches)
+
