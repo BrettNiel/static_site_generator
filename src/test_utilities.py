@@ -1,15 +1,15 @@
 import unittest
 
-from utilities import split_nodes_delimiter
 from textnode import TextNode, TextType
+from utilities import split_nodes_delimiter
 from utilities import extract_markdown_images
 from utilities import extract_markdown_links
 from utilities import split_nodes_image
 from utilities import split_nodes_link
 from utilities import text_to_textnodes
 
+class TestUtilities(unittest.TestCase):
 
-class TestNodeDelimiter(unittest.TestCase):
     def test_code(self):
         node = TextNode('This is a text node with `code` in it', TextType.TEXT)
         new_nodes = split_nodes_delimiter([node], '`', TextType.CODE)
@@ -22,7 +22,6 @@ class TestNodeDelimiter(unittest.TestCase):
             new_nodes,
         )
 
-class TestNodeDelimiter(unittest.TestCase):
     def test_bold(self):
         node = TextNode('This is a text node with **bold words** in it', TextType.TEXT)
         new_nodes = split_nodes_delimiter([node], '**', TextType.BOLD)
@@ -35,7 +34,6 @@ class TestNodeDelimiter(unittest.TestCase):
             new_nodes,
         )
 
-class TestNodeDelimiter(unittest.TestCase):
     def test_italic(self):
         node = TextNode('This is a text node with _italic words_ in it', TextType.TEXT)
         new_nodes = split_nodes_delimiter([node], '_', TextType.ITALIC)
@@ -48,7 +46,6 @@ class TestNodeDelimiter(unittest.TestCase):
             new_nodes,
         )
 
-class TestNodeImage(unittest.TestCase):
     def test_split_images(self):
         node = TextNode(
             "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
@@ -67,7 +64,6 @@ class TestNodeImage(unittest.TestCase):
             new_nodes,
         )
 
-class TestNodeLink(unittest.TestCase):
     def test_split_links(self):
         node = TextNode(
             "This is text with a [link](https://www.google.com) and another [second link](https://www.youtube.com)",
@@ -84,7 +80,6 @@ class TestNodeLink(unittest.TestCase):
             new_nodes,
         )
 
-class TestTextToTextNodes(unittest.TestCase):
     def test_text_to_textnodes(self):
         node = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
         new_nodes = text_to_textnodes(node)
@@ -101,13 +96,10 @@ class TestTextToTextNodes(unittest.TestCase):
             TextNode("link", TextType.LINK, "https://boot.dev"),
         ], new_nodes)
 
-class TestExtractImage(unittest.TestCase):
     def test_extract_markdown_images(self):
         matches = extract_markdown_images("This is text with an ![image](https://i.imgur.com/zjjcJKZ.png)")
         self.assertListEqual([("image", "https://i.imgur.com/zjjcJKZ.png")], matches)
 
-class TestExtractLinks(unittest.TestCase):
     def test_extract_markdown_links(self):
         matches = extract_markdown_links("This is text with a [link](https://www.google.com)")
         self.assertListEqual([("link", "https://www.google.com")], matches)
-
