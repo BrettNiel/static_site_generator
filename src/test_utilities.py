@@ -7,7 +7,6 @@ from utilities import extract_markdown_links
 from utilities import split_nodes_image
 from utilities import split_nodes_link
 from utilities import text_to_textnodes
-from utilities import markdown_to_blocks
 
 class TestUtilities(unittest.TestCase):
 
