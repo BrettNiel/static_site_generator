@@ -48,10 +48,35 @@ def markdown_to_blocks(markdown):
         stripped_lines.append(line.strip())
     return stripped_lines
 
-def markdown_to_html(markdown):
+def markdown_to_html_node(markdown):
     split_markdown = markdown_to_blocks(markdown)
+    node_list = []
     for block in split_markdown:
         block_type = block_to_block_type(block)
+        if block_type == BlockType.HEADING:
+            node = heading_to_html_node(block)
+        elif block_type == BlockType.CODE:
+            node = code_to_html_node(block)
+        elif block_type == BlockType.QUOTE:
+            node = quote_to_html_node(block)
+        elif block_type == BlockType.UNORDERED_LIST:
+            node = ul_to_html_node(block)
+        elif block_type == BlockType.ORDERED_LIST:
+            node = ol_to_html_node(block)
+        elif block_type == BlockType.PARAGRAPH:
+            node = paragraph_to_html_node(block)
+        else:
+            raise Exception("Error with block type value")
+        node_list.append(node)
+    return ParentNode('div', node_list)
+
+
+def text_to_children(text):
+    textnodes = text_to_textnodes(text)
+    htmlnodes = []
+    for node in textnodes:
+        htmlnodes.append(text_node_to_html_node(node))
+    return htmlnodes
 
 def paragraph_to_html_node(block):
     lines = block.split('\n')
@@ -86,11 +111,20 @@ def quote_to_html_node(block):
     children = text_to_children(quote)
     return ParentNode('blockquote', children)
 
+def ul_to_html_node(block):
+    lines = block.split('\n')
+    updated_lines = []
+    for line in lines:
+        line = line[2:]
+        children = text_to_children(line)
+        updated_lines.append(ParentNode('li', children))
+    return ParentNode('ul', updated_lines)
 
-
-def text_to_children(text):
-    textnodes = text_to_textnodes(text)
-    htmlnodes = []
-    for node in textnodes:
-        htmlnodes.append(text_node_to_html_node(node))
-    return htmlnodes
+def ol_to_html_node(block):
+    lines = block.split('\n')
+    updated_lines = []
+    for line in lines:
+        line = line.split('. ', 1)[1]
+        children = text_to_children(line)
+        updated_lines.append(ParentNode('li', children))
+    return ParentNode('ol', updated_lines)
