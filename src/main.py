@@ -1,9 +1,12 @@
-from textnode import TextNode, TextType
-from htmlnode import HTMLNode
+import os
+import shutil
+from copystatic import copy_contents
 
 def main():
-    #test_node = TextNode("Hello World", TextType.TEXT, "https://www.google.com")
-    #test_node = HTMLNode("<p>", "Test paragraph", "<div>", "id: 1")
-    #print(test_node)
+
+    if os.path.exists('public/'):
+        shutil.rmtree('public/')
+
+    copy_contents('static/', 'public/')
 
 main()
