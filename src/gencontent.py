@@ -27,3 +27,17 @@ def generate_page(from_path, template_path, dest_path):
 
     with open(dest_path, mode='w') as destination_file:
         destination_file.write(final_html_content)
+
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+    for file in os.listdir(dir_path_content):
+        source_file_path = os.path.join(dir_path_content, file)
+        destination_file_path = os.path.join(dest_dir_path, file)
+
+        if os.path.isfile(source_file_path):
+            if source_file_path.endswith('.md'):
+                destination_html_path = destination_file_path.replace('.md', '.html')
+                generate_page(source_file_path, template_path, destination_html_path)
+        else:
+            if not os.path.exists(destination_file_path):
+                os.makedirs(destination_file_path, exist_ok=True)
+            generate_pages_recursive(source_file_path, template_path, destination_file_path)
