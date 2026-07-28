@@ -1,8 +1,8 @@
 body {
-    background-color: #1f1c25;
-    color: #f0e6d1;
+    background-color: #042403;
+    color: white;
     font-family: "Luminari", "Georgia", serif;
-    line-height: 1.7;
+    line-height: 2.0;
     margin: 0;
     padding: 20px;
     max-width: 800px;
@@ -20,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #dda15e;
+    color: #85ff99;
     margin-top: 24px;
     margin-bottom: 16px;
     text-shadow: 2px 2px 4px #000;
@@ -45,14 +45,14 @@ h6 {
 }
 
 a {
-    color: #e0a96d;
+    color: white;
     text-decoration: none;
-    border-bottom: 2px solid #e0a96d;
+    border-bottom: 2px solid #85ff99;
 }
 
 a:hover {
-    color: #f4a261;
-    border-color: #f4a261;
+    color: #02cfc8;
+    border-color: #02cfc8;
 }
 
 ul,
@@ -63,7 +63,7 @@ ol {
 code {
     background-color: #3c3c42;
     border-radius: 6px;
-    color: #e9c46a;
+    color: #85ff99;
     padding: 0.4em 0.6em;
     font-family: "Courier New", monospace;
 }
@@ -88,7 +88,7 @@ blockquote {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-right: 0.5em;
-    color: #ddd;
+    color: white;
     font-style: italic;
 }
 
