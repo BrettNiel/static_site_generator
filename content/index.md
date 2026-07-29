@@ -33,6 +33,7 @@ Bachelor's Degree in Computer Science
 
 - [github](https://github.com/BrettNiel)
 - [boot.dev](https://www.boot.dev/u/clubpenguinmom)
+- [codecademy](https://www.codecademy.com/profiles/bmniel)
 - [tryhackme](https://tryhackme.com/p/ClubPenguinMom)
 
 ## Contact me 
