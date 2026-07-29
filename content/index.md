@@ -35,6 +35,6 @@ Bachelor's Degree in Computer Science
 - [boot.dev](https://www.boot.dev/u/clubpenguinmom)
 - [tryhackme](https://tryhackme.com/p/ClubPenguinMom)
 
-## Contact me! 
+## Contact me 
 
 Feel free to email me by clicking [here](mailto:2l97dolr7@mozmail.com)
