@@ -1,46 +1,40 @@
-# Tolkien Fan Club
+# Brett Niel 
 
-![JRR Tolkien sitting](/images/tolkien.png)
+Application Support Analyst, aspiring developer, and funniest man alive
 
-Here's the deal, **I like Tolkien**.
+![squirtle](images/squirtle.jpg)
 
-> "I am in fact a Hobbit in all but size."
->
-> -- J.R.R. Tolkien
+I enjoy technology _(not AI)_, gaming, investing, and of course, my dog
 
-## Blog posts
+This website began as a static site generator project that I personalized rather than not using at all
 
-- [Why Glorfindel is More Impressive than Legolas](/blog/glorfindel)
-- [Why Tom Bombadil Was a Mistake](/blog/tom)
-- [The Unparalleled Majesty of "The Lord of the Rings"](/blog/majesty)
+## Education
 
-## Reasons I like Tolkien
+Indiana University of Pennsylvania
+Bachelor's Degree in Computer Science
 
-- You can spend years studying the legendarium and still not understand its depths
-- It can be enjoyed by children and adults alike
-- Disney _didn't ruin it_ (okay, but Amazon might have)
-- It created an entirely new genre of fantasy
+- Majored in Software Engineering track
+- Minor in Information Assurance
 
-## My favorite characters (in order)
+## Skills & Languages
 
-1. Gandalf
-2. Bilbo
-3. Sam
-4. Glorfindel
-5. Galadriel
-6. Elrond
-7. Thorin
-8. Sauron
-9. Aragorn
+- Software support & troubleshooting of many different software packages
+- Database, System, and Network administration
+- Python, SQL, Powershell, HTML, CSS, JavaScript
+- PowerBI
 
-Here's what `elflang` looks like (the perfect coding language):
+## Certifications
 
-```
-func main(){
-    fmt.Println("Aiya, Ambar!")
-}
-```
+- CompTIA A+ & Network+
+- Tryhackme Intro to Cybersecurity & Junior Penetration Tester
+- Multiple in progress on Boot.dev & Codecademy
 
-Want to get in touch? [Contact me here](/contact).
+## Profiles
 
-This site was generated with a custom-built [static site generator](https://www.boot.dev/courses/build-static-site-generator-python) from the course on [Boot.dev](https://www.boot.dev).
+- [github](https://github.com/BrettNiel)
+- [boot.dev](https://www.boot.dev/u/clubpenguinmom)
+- [tryhackme](https://tryhackme.com/p/ClubPenguinMom)
+
+## Contact me! 
+
+Feel free to email me by clicking [here](mailto:2l97dolr7@mozmail.com)
