@@ -4,7 +4,7 @@ Application Support Analyst, aspiring developer, and funniest man alive
 
 ![squirtle](images/squirtle.jpg)
 
-I enjoy technology _(not AI)_, gaming, investing, and of course, my dog
+I enjoy technology _(not AI)_, gaming, investing, and my dog
 
 This website began as a static site generator project that I personalized rather than not using at all
 
